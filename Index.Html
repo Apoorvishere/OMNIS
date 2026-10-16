@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OMNIS — your knowledge, connected</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="rail">
+    <a class="brand" href="#">o</a>
+    <button class="nav active" aria-label="Overview">▦</button>
+    <button class="nav" aria-label="Documents">▤</button>
+    <button class="nav" aria-label="Knowledge graph">⌘</button>
+  </aside>
+
+  <main class="workspace">
+    <header class="topbar">
+      <span>Workspace / <strong>Overview</strong></span>
+      <span class="sync"><i></i> All files synced</span>
+    </header>
+
+    <div class="content">
+      <section class="welcome">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL KNOWLEDGE SPACE</p>
+          <h1>Your knowledge,<br><em>connected.</em></h1>
+          <p class="intro">A little more clarity from everything you’ve saved.</p>
+        </div>
+        <button class="add-button" id="add-doc">＋ Add documents</button>
+        <input id="file-input" type="file" hidden multiple accept=".pdf,.docx,.md,.txt,.csv">
+      </section>
+
+      <section class="ask-card">
+        <div class="spark">✳</div>
+        <div class="ask-body">
+          <label for="question">Ask anything across your workspace</label>
+          <div class="ask-row">
+            <input id="question" placeholder="Try: What are the upcoming deadlines?">
+            <button id="ask-button" aria-label="Ask">↑</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="answer-card" class="answer-card" hidden>
+        <p class="eyebrow">A STARTING POINT</p>
+        <p id="answer-text"></p>
+        <div id="citations"></div>
+      </section>
+
+      <section class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h2>A good place to start</h2>
+        </div>
+        <span class="subtle">Sample workspace</span>
+      </section>
+
+      <div class="dashboard">
+        <section class="panel">
+          <h3>Recent documents <span class="subtle">4</span></h3>
+          <div id="document-list"></div>
+          <button class="upload-row" id="upload-row">＋ Add a document</button>
+        </section>
+
+        <section class="panel">
+          <h3>Knowledge graph</h3>
+          <p class="subtle">Connections across your files</p>
+          <div class="graph">
+            <svg viewBox="0 0 400 220" aria-hidden="true">
+              <line x1="200" y1="110" x2="78" y2="52"/>
+              <line x1="200" y1="110" x2="322" y2="52"/>
+              <line x1="200" y1="110" x2="78" y2="174"/>
+              <line x1="200" y1="110" x2="322" y2="174"/>
+              <line x1="78" y1="52" x2="322" y2="52"/>
+              <line x1="78" y1="174" x2="322" y2="174"/>
+            </svg>
+            <button class="node center" data-node="Project Atlas">● Project Atlas</button>
+            <button class="node one" data-node="Research notes">● Research notes</button>
+            <button class="node two" data-node="Market research">● Market research</button>
+            <button class="node three" data-node="Launch plan">● Launch plan</button>
+            <button class="node four" data-node="Team sync">● Team sync</button>
+          </div>
+          <p id="graph-message" class="subtle">Select a node to explore its connections.</p>
+        </section>
+      </div>
+
+      <section class="insights">
+        <p class="eyebrow">WORTH A SECOND LOOK</p>
+        <h2>Loose ends &amp; connections</h2>
+        <div class="insight-list">
+          <button class="insight" data-insight="deadline">
+            <span>◷</span>
+            <span><strong>Send revised budget by Friday</strong><small>Upcoming obligation · Team sync notes</small></span>
+          </button>
+          <button class="insight" data-insight="conflict">
+            <span>⌁</span>
+            <span><strong>Two different launch dates</strong><small>Possible conflict · Launch plan and team notes</small></span>
+          </button>
+        </div>
+      </section>
+
+      <footer>Thoughtful answers, grounded in your files ✳</footer>
+    </div>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
